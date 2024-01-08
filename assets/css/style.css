@@ -125,6 +125,7 @@ body {
 }
 /* end preview-card */
 .copyrights {
+  disply: flex;
   & img {
     width: 100px;
   }
