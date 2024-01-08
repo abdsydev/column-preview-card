@@ -9,24 +9,94 @@
   src: url("../fonts/BigShouldersDisplay-VariableFont_wght.ttf");
   font-display: swap;
 }
-
 :root {
---Bright-orange: hsl(31, 77%, 52%);
---Dark-cyan: hsl(184, 100%, 22%);
---Very-dark-cyan: hsl(179, 100%, 13%);
-/* (paragraphs) */
---Transparent-white: hsla(0, 0%, 100%, 0.75);
-/* (background, headings, buttons) */
---Very-light-gray : hsl(0, 0%, 95%);
+  --Bright-orange: hsl(31, 77%, 52%);
+  --Dark-cyan: hsl(184, 100%, 22%);
+  --Very-dark-cyan: hsl(179, 100%, 13%);
+  /* (paragraphs) */
+  --Transparent-white: hsla(0, 0%, 100%, 0.75);
+  /* (background, headings, buttons) */
+  --Very-light-gray: hsl(0, 0%, 95%);
+  /* transition */
+  --function: 0.3s ease;
 }
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
-
 body {
   font-size: 15px;
   font-family: "LexendDeca";
+  background-color: var(--Very-light-gray);
 }
+.container {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* preview-card */
+.preview-card {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 300px));
+  grid-template-rows: 400px;
+  justify-content: center;
+  /* card */
+  .card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: column wrap;
+    gap: 25px;
+    padding: 30px;
+    & h2 {
+      font-family: "BigShouldersDisplay";
+      text-transform: uppercase;
+      color: var(--Very-light-gray);
+      font-size: 2rem;
+      margin-top: -50px;
+    }
+    & p {
+      color: var(--Transparent-white);
+      font-size: 14px;
+      padding-right: 50px;
+      line-height: 1.7;
+      margin-top: -50px;
+    }
+    & a {
+      text-decoration: none;
+      background-color: var(--Very-light-gray);
+      border: 2px solid var(--Very-light-gray);
+      padding: 0.5rem 1rem;
+      border-radius: 99px;
+      transition: color var(--function), background-color var(--function);
+      &:hover {
+        background-color: transparent;
+        color: var(--Very-light-gray);
+      }
+    }
+  }
+  .sedans {
+    background-color: var(--Bright-orange);
+    border-radius: 10px 0 0 10px;
+    & a {
+      color: var(--Bright-orange);
+    }
+  }
+  .suvs {
+    background-color: var(--Dark-cyan);
+    & a {
+      color: var(--Dark-cyan);
+    }
+  }
+  .luxury {
+    background-color: var(--Very-dark-cyan);
+    border-radius: 0 10px 10px 0;
+    & a {
+      color: var(--Very-dark-cyan);
+    }
+  }
+}
+/* end preview-card */
